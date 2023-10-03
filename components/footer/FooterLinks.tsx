@@ -29,6 +29,12 @@ export default function FooterLinks() {
           </Link>
           <p>+91 7994555949</p>
           {/* <p>contact@xynapsetechnologies.com</p> */}
+          <Link
+            href="/admin/login"
+            className="w-fit rounded hover:bg-gray-100/25 transition-all"
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </div>

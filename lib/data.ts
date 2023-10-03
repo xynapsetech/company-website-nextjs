@@ -26,6 +26,13 @@ export const links = [
   },
 ] as const;
 
+export const adminLinks = [
+  {
+    name: "Internship",
+    hash: "internship",
+  },
+] as const;
+
 export const HeroSectionContent = [
   {
     id: 1,

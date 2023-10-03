@@ -19,4 +19,5 @@ const userSchema = new mongoose.Schema({
   hearSource: String,
 });
 
-export const InternUser = mongoose.model("User", userSchema);
+export const InternUser =
+  mongoose.models.User || mongoose.model("User", userSchema);

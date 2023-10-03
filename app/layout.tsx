@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "./Providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,17 +26,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
       <body className={cn(poppins.className, "dark:bg-slate-950")}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          storageKey="xynapse-tech"
-        >
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            storageKey="xynapse-tech"
+          >
+            {/* <Navbar /> */}
+            {children}
+            <Toaster />
+            {/* <Footer /> */}
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );
