@@ -45,7 +45,7 @@ export default function AdminHamIcon() {
                 className="py-4 px-5 hover:bg-zinc-200 dark:hover:bg-gray-800 border-b border-zinc-300 dark:border-gray-800 transition-all font-medium"
                 key={link.hash}
               >
-                <Link href={`/${link.hash}`}>{link.name}</Link>
+                <Link href={link.hash}>{link.name}</Link>
               </li>
             ))}
             <div className="text-center py-2">
@@ -54,7 +54,9 @@ export default function AdminHamIcon() {
           </ul>
         </div>
         <div className="w-full flex justify-between items-center mt-10">
-          <p className="bg-gray-200/50 dark:bg-gray-900/50 p-2 rounded">{session?.user?.email}</p>
+          <p className="bg-gray-200/50 dark:bg-gray-900/50 p-2 rounded">
+            {session?.user?.email}
+          </p>
           <ModeToggle />
         </div>
         <SheetFooter>

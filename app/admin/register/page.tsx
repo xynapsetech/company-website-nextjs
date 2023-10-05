@@ -6,7 +6,11 @@ import React from "react";
 
 export default async function page() {
   const session = await getServerSession(authOptions);
-  if (session) redirect("/admin/dashboard");
+  if (session) {
+    redirect("/admin/dashboard");
+  } else {
+    redirect("/admin/login");
+  }
   return (
     <div className="flex justify-center items-center mt-28 mb-10">
       <RegisterForm />

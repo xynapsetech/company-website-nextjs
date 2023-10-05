@@ -51,7 +51,7 @@ export async function getInternData(): Promise<InternUserTypes[]> {
 
 type CardProps = React.ComponentProps<typeof Card>;
 export async function InternshipTable({ className, ...props }: CardProps) {
-  const internUser =await getInternData();
+  const internUser = await getInternData();
 
   return (
     <Card className={cn("w-full md:w-4/5", className)} {...props}>
@@ -62,48 +62,51 @@ export async function InternshipTable({ className, ...props }: CardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
-        <Table>
-          <TableCaption>
-            A list of users registered for internship.
-          </TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead>SI No</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Mobile</TableHead>
-              <TableHead>Resume</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {internUser.map((data, index) => (
-              <TableRow key={index}>
-                <TableCell>{index + 1}</TableCell>
-                <TableCell className="font-medium">
-                  {data.firstname} {data.lastname}
-                </TableCell>
-                <TableCell>{data.email}</TableCell>
-                <TableCell>{data.mobilenum}</TableCell>
-                <TableCell>
-                  <Link
-                    href={data.resumeUrl}
-                    className="text-blue-400 underline hover:text-blue-700"
-                    target="_blank"
-                  >
-                    View resume
-                  </Link>
-                </TableCell>
-                <TableCell className="text-right">
-                  <Link href={`internship/${data._id}`}>
-                    <Button variant="outline">View Details</Button>
-                  </Link>
-                </TableCell>
+        {internUser ? (
+          <Table>
+            <TableCaption>
+              A list of users registered for internship.
+            </TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead>SI No</TableHead>
+                <TableHead>Name</TableHead>
+                <TableHead>Email</TableHead>
+                <TableHead>Mobile</TableHead>
+                <TableHead>Resume</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {internUser.map((data, index) => (
+                <TableRow key={index}>
+                  <TableCell>{index + 1}</TableCell>
+                  <TableCell className="font-medium">
+                    {data.firstname} {data.lastname}
+                  </TableCell>
+                  <TableCell>{data.email}</TableCell>
+                  <TableCell>{data.mobilenum}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={data.resumeUrl}
+                      className="text-blue-400 underline hover:text-blue-700"
+                      target="_blank"
+                    >
+                      View resume
+                    </Link>
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <Link href={`internship/${data._id}`}>
+                      <Button variant="outline">View Details</Button>
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ) : (
+          <p className="text-center p-5">No users found!</p>
+        )}
       </CardContent>
-      <CardFooter></CardFooter>
     </Card>
   );
 }
