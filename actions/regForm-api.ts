@@ -8,7 +8,6 @@ import { InternUser } from "./models/regUserModel";
 type Input = z.infer<typeof formSchema>;
 
 export async function registerForm(data: Input) {
-  
   connectMongo();
   const newUser = new InternUser({
     firstname: data.firstname,
@@ -34,7 +33,7 @@ export async function registerForm(data: Input) {
     .then(() => {
       console.log("success");
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("failed:", error);
     });
 

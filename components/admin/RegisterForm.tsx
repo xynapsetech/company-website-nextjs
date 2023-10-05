@@ -41,18 +41,6 @@ export default function RegisterForm() {
   async function onSubmit(data: Input) {
     try {
       const { email, password } = data;
-      // console.log(email, password);
-      // const resUserExists = await axios.post("/api/userExists", { email });
-
-      // const { user } = await resUserExists.data;
-
-      // if (user) {
-      //   toast({
-      //     variant: "failureVariant",
-      //     title: "User already exists.",
-      //   });
-      //   return;
-      // }
 
       const res = await axios.post("/api/register", { email, password });
 

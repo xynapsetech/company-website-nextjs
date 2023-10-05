@@ -29,7 +29,7 @@ export const links = [
 export const adminLinks = [
   {
     name: "Internship",
-    hash: "internship",
+    hash: "/admin/dashboard/internship",
   },
 ] as const;
 
