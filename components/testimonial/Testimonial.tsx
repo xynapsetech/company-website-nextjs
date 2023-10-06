@@ -9,7 +9,7 @@ export default function Testimonial() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
 
-  const changeActiveIndex = (index) => {
+  const changeActiveIndex = (index: React.SetStateAction<number>) => {
     setAnimate(true);
     setTimeout(() => {
       setActiveIndex(index);
