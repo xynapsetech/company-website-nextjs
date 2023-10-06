@@ -41,7 +41,7 @@ export interface InternUserTypes {
 }
 
 export async function getInternData(): Promise<InternUserTypes[]> {
-  const resp = await axios.get("http://localhost:3000/api/internUser");
+  const resp = await axios.get("/api/internUser");
   if (!resp.status) {
     throw new Error("Failed to fetch data");
   }
