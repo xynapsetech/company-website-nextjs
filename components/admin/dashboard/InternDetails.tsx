@@ -15,6 +15,7 @@ export default function InternDetails(props: {
   internDetails: InternUserTypes;
 }) {
   let { internDetails } = props;
+  console.log(internDetails)
   let { firstname, lastname } = internDetails;
   const keyValue = [
     "Id",

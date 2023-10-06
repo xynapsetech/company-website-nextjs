@@ -4,11 +4,13 @@ import axios from "axios";
 import React from "react";
 
 async function getData(id: any): Promise<InternUserTypes[]> {
-  const resp = await axios.get(`/api/internUser/${id}`);
+  const resp = await axios.get(
+    `https://api.xynapsetechnologies.com/api/intern/${id}`
+  );
   if (!resp.status) {
     throw new Error("Failed to fetch data");
   }
-  const data: InternUserTypes[] = await resp.data.data;
+  const data: InternUserTypes[] = await resp.data;
   return data;
 }
 
