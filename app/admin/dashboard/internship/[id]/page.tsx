@@ -4,7 +4,7 @@ import axios from "axios";
 import React from "react";
 
 async function getData(id: any): Promise<InternUserTypes[]> {
-  const resp = await axios.get(`/api/internUser/${id}`);
+  const resp = await axios.get(`http://localhost:3000/api/internUser/${id}`);
   if (!resp.status) {
     throw new Error("Failed to fetch data");
   }
