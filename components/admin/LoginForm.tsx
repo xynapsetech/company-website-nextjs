@@ -67,7 +67,7 @@ export default function LoginForm() {
   }
 
   return (
-    <Card className="w-1/3">
+    <Card className="w-full md:w-1/3">
       <CardHeader>
         <CardTitle className="font-medium text-center">Admin Login</CardTitle>
       </CardHeader>
