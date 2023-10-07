@@ -40,7 +40,7 @@ export async function registerForm(data: Input) {
   //     return false;
   //   });
 
-//above given code is not working.
+//above given code is not working properly.
 
   await axios.post("https://api.xynapsetechnologies.com/api/intern",data).then((res)=>{
     console.log("user registered for internship!");
