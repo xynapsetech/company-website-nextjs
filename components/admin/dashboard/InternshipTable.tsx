@@ -41,7 +41,14 @@ export interface InternUserTypes {
 }
 
 export async function getInternData(): Promise<InternUserTypes[]> {
-  const resp = await axios.get("https://api.xynapsetechnologies.com/api/intern/");
+  const resp = await axios.get(
+    "https://api.xynapsetechnologies.com/api/intern/",
+    {
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    }
+  );
   if (!resp.status) {
     throw new Error("Failed to fetch data");
   }
